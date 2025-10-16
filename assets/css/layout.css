@@ -1,0 +1,12 @@
+/* Layout and Content Spacing */
+.content {
+  margin-top: 80px;
+  padding: 2rem;
+}
+
+/* Sections General Spacing */
+section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
