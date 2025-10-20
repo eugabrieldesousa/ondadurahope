@@ -32,4 +32,226 @@
   .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
   }
+
+  /* Sobre Section Mobile */
+  .sobre-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .sobre-stats {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .sobre-item {
+    font-size: 1rem;
+  }
+
+  .sobre-mission p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sobre-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .sobre-title {
+    font-size: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet Responsive */
+@media (max-width: 992px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-about {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile Responsive - Footer */
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-about {
+    grid-column: 1;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-logo {
+    margin: 0 auto 0.5rem;
+  }
+
+  .footer-column {
+    text-align: center;
+  }
+
+  .footer-links li a:hover {
+    transform: none;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-donate {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-donate {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-about h3 {
+    font-size: 1.3rem;
+  }
+
+  .footer-tagline {
+    font-size: 1rem;
+  }
+
+  .footer-description {
+    font-size: 0.9rem;
+  }
+
+  .footer-column h4 {
+    font-size: 1rem;
+  }
+
+  .footer-links li a,
+  .footer-contact li {
+    font-size: 0.9rem;
+  }
+
+  .footer-dev {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  /* Developer Badge Mobile */
+  .dev-badge {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .dev-badge-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .dev-badge-tooltip {
+    min-width: 250px;
+    padding: 1rem;
+    bottom: 65px;
+    right: -10px;
+  }
+
+  .dev-name {
+    font-size: 0.9rem;
+  }
+
+  .dev-role {
+    font-size: 0.8rem;
+  }
+
+  .dev-link {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  /* Indice Page Mobile */
+  .indice-main {
+    padding: 3rem 1.5rem;
+    min-height: calc(100vh - 70px - 500px);
+  }
+
+  .indice-title {
+    font-size: 2rem;
+  }
+
+  .indice-subtitle {
+    font-size: 1.1rem;
+  }
+
+    .wizard-form {
+      padding: 1.2rem 0.5rem;
+      max-width: 98vw;
+    }
+    .wizard-title {
+      font-size: 1.1rem;
+    }
+    .wizard-step {
+      gap: 1rem;
+    }
+    input, select, textarea {
+      font-size: 0.95rem;
+      padding: 0.6rem 0.7rem;
+    }
+  .btn-next, .btn-restart, .btn-prev {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .unidades-grid, .auxilio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .radio-group-inline {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .checkbox-label {
+    font-size: 0.9rem;
+  }
+}@media (max-width: 320px) {
+  .indice-title {
+    font-size: 1.5rem;
+  }
+
+  .indice-subtitle {
+    font-size: 1rem;
+  }
 }

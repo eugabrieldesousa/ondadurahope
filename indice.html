@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Índice de Carência | Onda Dura Hope</title>
+    
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/carousel.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="assets/images/hope.png" alt="Hope Logo">
+        </a>
+        
+        <ul class="nav-menu">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="indice.html" class="nav-cta">Ver Índice</a></li>
+        </ul>
+
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="indice-main">
+      <div class="indice-container">
+        <h1 class="indice-title">Índice de Carência</h1>
+        <form id="carenciaForm" class="wizard-form">
+          <div class="wizard-step active">
+            <h2 class="wizard-title">Cadastro de Famílias</h2>
+            <p class="wizard-desc">Este cadastro é voltado para famílias em situação de vulnerabilidade.<br><br><strong>Importante:</strong> Preencher o cadastro não garante atendimento imediato. Sua família entrará em nosso cadastro de triagem para possível visita e análise. A espera média para uma visita é de <strong>45 dias</strong>.</p>
+            <button type="button" class="btn-next">Começar</button>
+          </div>
+
+          <div class="wizard-step">
+            <label for="nome">Nome completo do/a responsável familiar *</label>
+            <input type="text" id="nome" name="nome" required autocomplete="name" placeholder="Digite o nome completo">
+            <button type="button" class="btn-next">Próximo</button>
+          </div>
+
+          <div class="wizard-step">
+            <label for="contato">Contato telefônico *</label>
+            <input type="tel" id="contato" name="contato" required autocomplete="tel" placeholder="+XX (XX) XXXXX-XXXX" maxlength="19">
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label for="cep">CEP *</label>
+            <input type="text" id="cep" name="cep" required placeholder="00000-000" maxlength="9">
+            <label for="endereco">Endereço *</label>
+            <input type="text" id="endereco" name="endereco" required placeholder="Rua, Avenida..." readonly>
+            <label for="numero">Número *</label>
+            <input type="text" id="numero" name="numero" required placeholder="Número da residência">
+            <label for="complemento">Complemento</label>
+            <input type="text" id="complemento" name="complemento" placeholder="Apto, Casa, Bloco...">
+            <label for="bairro">Bairro *</label>
+            <input type="text" id="bairro" name="bairro" required placeholder="Bairro" readonly>
+            <label for="cidade">Cidade *</label>
+            <input type="text" id="cidade" name="cidade" required placeholder="Cidade" readonly>
+            <label for="estado">Estado *</label>
+            <input type="text" id="estado" name="estado" required placeholder="UF" readonly maxlength="2">
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label for="cpf">CPF *</label>
+            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14">
+            <label class="checkbox-label checkbox-estrangeiro">
+              <input type="checkbox" id="estrangeiroCheck" name="estrangeiroCheck">
+              <span class="checkbox-custom"></span>
+              Sou estrangeiro sem documentação
+            </label>
+            <textarea id="estrangeiroMotivo" name="estrangeiroMotivo" class="conditional-detail" style="display:none;" placeholder="Explique o motivo de não ter documentação"></textarea>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label for="nascimento">Data de nascimento *</label>
+            <input type="date" id="nascimento" name="nascimento" required>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>Origem? *</label>
+            <select id="origem" name="origem" required>
+              <option value="">Selecione</option>
+              <option value="JOINVILLE">JOINVILLE</option>
+              <option value="OUTRO_BRASIL">Outro local do Brasil</option>
+              <option value="ESTRANGEIRO">Estrangeiro</option>
+            </select>
+            <div id="origemExtra" style="display:none; margin-top:1rem;">
+              <label for="cidadeExtra">Se for de outro local, diga cidade/estado/país</label>
+              <input type="text" id="cidadeExtra" name="cidadeExtra" placeholder="Cidade/Estado/País">
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>Existem crianças/adolescentes que moram com você? *</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="criancas_radio" value="SIM" required>
+                Sim
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="criancas_radio" value="NAO" required>
+                Não
+              </label>
+            </div>
+            <div id="criancasContainer" style="display:none; margin-top: 1rem;">
+              <label for="qtdCriancas">Quantas? *</label>
+              <input type="number" id="qtdCriancas" name="qtdCriancas" min="1" max="20" placeholder="Digite o número">
+              <div id="criancasFields" style="margin-top: 1rem;"></div>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>Você possui rede de apoio? *</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="rede_apoio" value="SIM" required>
+                Sim
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="rede_apoio" value="NAO" required>
+                Não
+              </label>
+            </div>
+            <div id="redeApoioContainer" style="display:none; margin-top: 1rem;">
+              <p style="font-size: 0.95rem; color: #666; margin-bottom: 0.8rem;">Selecione quem faz parte da sua rede:</p>
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="rede_apoio_tipo" value="AVO_AVO">
+                  <span class="checkbox-custom"></span>
+                  Avó / Avô
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="rede_apoio_tipo" value="PAI_MAE">
+                  <span class="checkbox-custom"></span>
+                  Pai / Mãe das crianças
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="rede_apoio_tipo" value="AMIGOS">
+                  <span class="checkbox-custom"></span>
+                  Amigos
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="rede_apoio_tipo" value="VIZINHOS">
+                  <span class="checkbox-custom"></span>
+                  Vizinhos
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="redeOutrosCheck" name="rede_apoio_tipo" value="OUTROS">
+                  <span class="checkbox-custom"></span>
+                  Outros
+                </label>
+              </div>
+              <input type="text" id="redeOutrosTexto" name="redeOutrosTexto" style="display:none; margin-top: 0.8rem;" placeholder="Qual?">
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label for="ajuda">Como podemos ajudar? *</label>
+            <textarea id="ajuda" name="ajuda" required placeholder="Descreva como o HOPE pode ajudar sua família"></textarea>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>Você tem cadastro ou é atendido em alguma dessas unidades? *</label>
+            <div class="checkbox-group unidades-grid">
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CREAS 1"><span class="checkbox-custom"></span> CREAS 1</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CREAS 2"><span class="checkbox-custom"></span> CREAS 2</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CREAS 3"><span class="checkbox-custom"></span> CREAS 3</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CREAS 4"><span class="checkbox-custom"></span> CREAS 4</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CRAS COMASA"><span class="checkbox-custom"></span> CRAS COMASA</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CRAS AVENTUREIRO"><span class="checkbox-custom"></span> CRAS AVENTUREIRO</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CRAS FLORESTA"><span class="checkbox-custom"></span> CRAS FLORESTA</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CRAS PIRABEIRABA"><span class="checkbox-custom"></span> CRAS PIRABEIRABA</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CRAS MORRO DO MEIO"><span class="checkbox-custom"></span> CRAS MORRO DO MEIO</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CRAS PARQUE GUARANI"><span class="checkbox-custom"></span> CRAS PARQUE GUARANI</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CRAS ADHEMAR GARCIA"><span class="checkbox-custom"></span> CRAS ADHEMAR GARCIA</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CRAS PARANAGUAMIRIM"><span class="checkbox-custom"></span> CRAS PARANAGUAMIRIM</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="CRAS JARDIM PARAÍSO"><span class="checkbox-custom"></span> CRAS JARDIM PARAÍSO</label>
+              <label class="checkbox-label"><input type="checkbox" name="unidades" value="NENHUMA"><span class="checkbox-custom"></span> Nenhuma</label>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label for="indicacao">Como conheceu o HOPE? Nome de quem indicou *</label>
+            <input type="text" id="indicacao" name="indicacao" required placeholder="Nome de quem indicou ou como conheceu">
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>A família recebe algum auxílio? *</label>
+            <div class="checkbox-group auxilio-grid">
+              <label class="checkbox-label"><input type="checkbox" name="auxilio" value="NÃO"><span class="checkbox-custom"></span> Não</label>
+              <label class="checkbox-label"><input type="checkbox" name="auxilio" value="BPC"><span class="checkbox-custom"></span> BPC</label>
+              <label class="checkbox-label"><input type="checkbox" name="auxilio" value="BOLSA FAMÍLIA"><span class="checkbox-custom"></span> Bolsa Família</label>
+              <label class="checkbox-label"><input type="checkbox" name="auxilio" value="APOSENTADORIA"><span class="checkbox-custom"></span> Aposentadoria</label>
+              <label class="checkbox-label"><input type="checkbox" name="auxilio" value="OUTRO"><span class="checkbox-custom"></span> Outro</label>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>Qual o valor da renda (R$) familiar? *</label>
+            <select id="renda" name="renda" required>
+              <option value="">Selecione</option>
+              <option value="0-1">De 0 a 1 salário mínimo</option>
+              <option value="1-2">De 1 a 2 salários mínimos</option>
+              <option value="2-3">De 2 a 3 salários mínimos</option>
+              <option value="3+">Acima de 3 salários mínimos</option>
+            </select>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>Por quanto tempo acredita que sua família precisará do auxílio do HOPE? *</label>
+            <select id="tempo" name="tempo" required>
+              <option value="">Selecione</option>
+              <option value="1">1 mês</option>
+              <option value="2">2 meses</option>
+              <option value="3">3 meses</option>
+              <option value="4+">4 ou mais meses</option>
+            </select>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label for="autonomia">O que sua família precisa para caminhar sem o auxílio do HOPE? *</label>
+            <textarea id="autonomia" name="autonomia" required placeholder="Descreva o que falta para autonomia"></textarea>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>Existe pessoa com problema de vício em álcool ou drogas na casa? *</label>
+            <div class="radio-group-inline">
+              <label class="radio-label"><input type="radio" name="vicio" value="SIM" required> Sim</label>
+              <label class="radio-label"><input type="radio" name="vicio" value="NAO"> Não</label>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>A família foi ou é atendida por alguma outra instituição/ONG? *</label>
+            <div class="radio-group-inline">
+              <label class="radio-label"><input type="radio" name="ong_radio" value="SIM" required> Sim</label>
+              <label class="radio-label"><input type="radio" name="ong_radio" value="NAO"> Não</label>
+            </div>
+            <input type="text" id="ongDetalhe" name="ongDetalhe" class="conditional-detail" style="display:none;" placeholder="Qual instituição e por quanto tempo?">
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>Algum amigo ou familiar já participou do HOPE? *</label>
+            <div class="radio-group-inline">
+              <label class="radio-label"><input type="radio" name="amigo_hope" value="SIM" required> Sim</label>
+              <label class="radio-label"><input type="radio" name="amigo_hope" value="NAO"> Não</label>
+            </div>
+            <input type="text" id="amigoDetalhe" name="amigoDetalhe" class="conditional-detail" style="display:none;" placeholder="Quem participou?">
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>A família está disposta a participar de todas as nossas atividades propostas? *</label>
+            <select id="atividades" name="atividades" required>
+              <option value="">Selecione</option>
+              <option value="SIM">Sim</option>
+              <option value="NAO">Não</option>
+              <option value="TALVEZ">Talvez</option>
+            </select>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>Você é membro da Onda Dura? *</label>
+            <div class="radio-group-inline">
+              <label class="radio-label"><input type="radio" name="ondadura_radio" value="SIM" required> Sim</label>
+              <label class="radio-label"><input type="radio" name="ondadura_radio" value="NAO"> Não</label>
+            </div>
+            <input type="text" id="ondaduraGP" name="ondaduraGP" class="conditional-detail" style="display:none;" placeholder="Qual o seu GP e/ou culto que participa?">
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>No HOPE fazemos vídeos e fotos para divulgação. Você permite o uso da sua imagem e de sua família? *</label>
+            <div class="radio-group-inline">
+              <label class="radio-label"><input type="radio" name="imagem" value="SIM" required> Sim</label>
+              <label class="radio-label"><input type="radio" name="imagem" value="NAO"> Não</label>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="button" class="btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label>Declaro que são verdadeiras todas as informações acima, podendo perder o apoio do Instituto caso seja identificado qualquer inverdade. *</label>
+            <select id="declaracao" name="declaracao" required>
+              <option value="">Selecione</option>
+              <option value="SIM">Sim</option>
+            </select>
+            <div class="btn-group">
+              <button type="button" class="btn-prev">Voltar</button>
+              <button type="submit" class="btn-next">Enviar</button>
+            </div>
+          </div>
+
+          <div class="wizard-step wizard-result">
+            <h2 class="wizard-title">Resultado do Índice de Carência</h2>
+            <div id="carenciaScore" class="carencia-score"></div>
+            <div id="carenciaMsg" class="carencia-msg"></div>
+            <button type="button" class="btn-restart">Novo Cadastro</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Footer Top -->
+        <div class="footer-top">
+          <div class="footer-column footer-about">
+            <img src="assets/images/hope.png" alt="Hope Logo" class="footer-logo">
+            <h3>Onda Dura Hope</h3>
+            <p class="footer-tagline">"Famílias fortes, sociedade forte!"</p>
+            <p class="footer-description">
+              Desde 2017, o HOPE tem cuidado de centenas de famílias, oferecendo apoio integral, oportunidades e esperança para um novo começo.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h4>Links Rápidos</h4>
+            <ul class="footer-links">
+              <li><a href="index.html#home">Home</a></li>
+              <li><a href="index.html#sobre">Sobre</a></li>
+              <li><a href="indice.html">Índice</a></li>
+              <li><a href="https://www.ondadura.com.br" target="_blank">Igreja Onda Dura</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Projetos</h4>
+            <ul class="footer-links">
+              <li><a href="#">Bazar do Hope</a></li>
+              <li><a href="#">Apoio a Famílias</a></li>
+              <li><a href="#">Voluntariado</a></li>
+              <li><a href="#">Doações</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Contato</h4>
+            <ul class="footer-contact">
+              <li>📍 Charlotte, NC, EUA</li>
+              <li>📍 Joinville, SC, Brasil</li>
+              <li>📧 contato@ondadurahope.org</li>
+              <li>📱 @ondadurahope</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Footer Divider -->
+        <div class="footer-divider"></div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
+            </a>
+          </div>
+
+          <div class="footer-copyright">
+            <p>&copy; 2025 Onda Dura Hope. Todos os direitos reservados.</p>
+            <p class="footer-subtitle">Instituto Social da <a href="https://www.ondadura.com.br" target="_blank" class="footer-link-purple">@ondadura</a></p>
+            <p class="footer-dev">
+              Desenvolvido por <strong>Gabriel de Sousa</strong> | 
+              <a href="https://instagram.com/eugabrieldesousa" target="_blank" class="footer-link-purple">@eugabrieldesousa</a> | 
+              <a href="https://wa.me/5547997314944" target="_blank" class="footer-link-purple">💬 WhatsApp</a>
+            </p>
+          </div>
+
+          <div class="footer-donate">
+            <a href="#" class="btn-donate">Fazer Doação</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Developer Badge -->
+    <div class="dev-badge">
+      <div class="dev-badge-icon">👨‍💻</div>
+      <div class="dev-badge-tooltip">
+        <p class="dev-name">Feito por <strong>Gabriel de Sousa</strong></p>
+        <p class="dev-role">Membro da Onda Dura Joinville</p>
+        <p class="dev-role">Tecladista e Engenheiro de Software</p>
+        <a href="https://instagram.com/eugabrieldesousa" target="_blank" class="dev-link">
+          📱 Clique para visitar meu Instagram
+        </a>
+      </div>
+    </div>
+
+  <!-- JavaScript Files -->
+  <script src="assets/js/navbar.js"></script>
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+  <!-- wizard.js deve ser carregado após todo o HTML -->
+  <script src="assets/js/wizard.js"></script>
+  </body>
+</html>
